@@ -1,6 +1,8 @@
 package com.example.yazilimstajyer1.bildirimler;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
@@ -10,17 +12,19 @@ import android.widget.TextView;
 import com.yazilimstajyer1.bildirimler.R;
 
 
-
 public class MainActivity extends Activity {
     public WebView webView;
     public TextView textview;
     public TextView textview2;
     private String uri;
     private String alert;
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if (getIntent().getExtras() != null && getIntent().getExtras().getString("URI_STRING", "ALERT_STRING") != null) {
             uri = getIntent().getExtras().getString("URI_STRING");
             alert = getIntent().getExtras().getString("ALERT_STRING");
